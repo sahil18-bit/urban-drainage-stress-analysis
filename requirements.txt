@@ -2,7 +2,3 @@ streamlit
 pandas
 numpy
 scikit-learn
-geopandas
-shapely
-fiona
-pyproj
