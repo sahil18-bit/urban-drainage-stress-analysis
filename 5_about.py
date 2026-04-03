@@ -1,0 +1,140 @@
+import streamlit as st
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+from utils import inject_css, MAP_WEBSITE_URL
+
+st.set_page_config(page_title="About · City Infrastructure", page_icon="ℹ️", layout="wide")
+inject_css()
+
+with st.sidebar:
+    st.markdown("""<div style="padding:1rem 0 1.5rem 0;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:1rem;">
+        <div style="font-size:1.1rem;font-weight:700;color:#e2e8f0;">🏙️ City Infrastructure</div>
+        <div style="font-size:0.72rem;color:#475569;margin-top:0.2rem;">Intelligence Platform</div></div>""", unsafe_allow_html=True)
+    st.markdown("**Navigation**")
+    st.page_link("main.py",             label="🏠  Home")
+    st.page_link("pages/1_drain.py",    label="🌧️  Drain Analysis")
+    st.page_link("pages/2_pipe.py",     label="🔧  Pipe Analysis")
+    st.page_link("pages/3_map.py",      label="🗺️  Map Viewer")
+    st.page_link("pages/4_insights.py", label="📊  Insights")
+    st.page_link("pages/5_about.py",    label="ℹ️  About")
+
+st.markdown("""
+<div class="page-title">
+    <h1>ℹ️ About This Platform</h1>
+    <p>Physics-based ML pipeline for urban drainage network risk assessment</p>
+</div>
+""", unsafe_allow_html=True)
+
+col1, col2 = st.columns([1.2, 1], gap="large")
+
+with col1:
+    st.markdown("""
+    <div class="glass-card">
+        <div style="color:#e2e8f0;font-weight:700;font-size:1.05rem;margin-bottom:1rem;">⚡ Physics Engine</div>
+        <div style="color:#94a3b8;font-size:0.85rem;line-height:1.8;margin-bottom:1.2rem;">
+            The physics engine implements hydraulic flow equations to compute real-world drain behavior
+            from raw monthly rainfall data. It runs independently per row — no averaging, no data loss.
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1rem;font-family:monospace;font-size:0.78rem;color:#7dd3fc;line-height:2;">
+            Q_runoff   = Rainfall × Catchment × Runoff_coeff × 100<br>
+            Q_baseflow = 5 × Catchment × Impervious_frac<br>
+            Q_total_in = Q_runoff + Q_baseflow<br>
+            Q_eff      = Design_Capacity × Degradation_Factor<br>
+            Utilization = Q_total_in / Q_eff
+        </div>
+        <div style="margin-top:1rem;color:#64748b;font-size:0.8rem;">
+            Status thresholds: &nbsp;
+            <span style="color:#4ade80;">SAFE &lt;60%</span> &nbsp;·&nbsp;
+            <span style="color:#fb923c;">STRESSED 60–90%</span> &nbsp;·&nbsp;
+            <span style="color:#f87171;">CRITICAL &gt;90%</span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="glass-card" style="margin-top:1rem;">
+        <div style="color:#e2e8f0;font-weight:700;font-size:1.05rem;margin-bottom:1rem;">🔧 Pipe Hydraulics — Manning's Equation</div>
+        <div style="color:#94a3b8;font-size:0.85rem;line-height:1.8;margin-bottom:1.2rem;">
+            For pipes, we apply Manning's equation to compute theoretical flow capacity,
+            then apply an age and material-based degradation factor to get real-world effective capacity.
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1rem;font-family:monospace;font-size:0.78rem;color:#c4b5fd;line-height:2;">
+            Capacity = (1/n) × A × R^(2/3) × S^(1/2)<br>
+            n = Manning's roughness (by material)<br>
+            A = π × (D/2)²  (cross-sectional area)<br>
+            R = D/4          (hydraulic radius)<br>
+            Effective = Capacity × Degradation_Factor
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown("""
+    <div class="glass-card">
+        <div style="color:#e2e8f0;font-weight:700;font-size:1.05rem;margin-bottom:1rem;">🤖 Machine Learning — Random Forest</div>
+        <div style="color:#94a3b8;font-size:0.85rem;line-height:1.8;">
+            After the physics engine computes hydraulic status, a Random Forest classifier
+            learns the multi-feature patterns that indicate risk — going beyond simple utilization thresholds.
+        </div>
+        <br>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+    """, unsafe_allow_html=True)
+
+    ml_details = [
+        ("200 decision trees", "each trained on random data subsets", "#60a5fa"),
+        ("predict_proba()", "outputs probability for each class", "#a78bfa"),
+        ("Failure Prob = P(STRESSED) + P(CRITICAL)", "combined non-safe probability", "#fb923c"),
+        ("8 drain features", "rainfall, slope, catchment, degradation, etc.", "#4ade80"),
+        ("6 pipe features", "diameter, age, slope, utilization, roughness", "#4ade80"),
+    ]
+    for title, desc, color in ml_details:
+        st.markdown(f"""
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:0.7rem 0.9rem;">
+            <div style="color:{color};font-size:0.82rem;font-weight:600;">{title}</div>
+            <div style="color:#475569;font-size:0.75rem;margin-top:0.2rem;">{desc}</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("</div></div>", unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="glass-card" style="margin-top:1rem;border-left:3px solid #10b981;">
+        <div style="color:#6ee7b7;font-weight:700;font-size:1rem;margin-bottom:0.8rem;">🌆 Use Case</div>
+        <div style="color:#94a3b8;font-size:0.85rem;line-height:1.8;">
+            <strong style="color:#e2e8f0;">Smart City Planning & Flood Prevention</strong><br><br>
+            Municipal drainage teams can upload monthly sensor data to identify which drains
+            are most likely to fail during peak rainfall — enabling proactive maintenance
+            before flooding events occur.<br><br>
+            <strong style="color:#e2e8f0;">Dataset:</strong> Seattle Public Utilities (SPU) drainage network —
+            300 drains, 300 pipes across the Seattle metro area.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+# ── Tech stack ────────────────────────────────────────────────────────
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("""<div style="color:#94a3b8;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:1rem;">Tech Stack</div>""", unsafe_allow_html=True)
+
+tc1, tc2, tc3, tc4, tc5 = st.columns(5)
+stack = [
+    ("🐍", "Python 3.11", "Core language"),
+    ("📊", "Streamlit", "Web framework"),
+    ("🌲", "scikit-learn", "Random Forest ML"),
+    ("🐼", "Pandas / NumPy", "Data processing"),
+    ("📈", "Plotly", "Interactive charts"),
+]
+for col, (icon, name, desc) in zip([tc1,tc2,tc3,tc4,tc5], stack):
+    with col:
+        st.markdown(f"""
+        <div class="glass-card" style="text-align:center;padding:1rem;">
+            <div style="font-size:1.5rem;margin-bottom:0.4rem;">{icon}</div>
+            <div style="color:#e2e8f0;font-size:0.82rem;font-weight:600;">{name}</div>
+            <div style="color:#475569;font-size:0.72rem;margin-top:0.2rem;">{desc}</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+st.markdown("""
+<div style="text-align:center;color:#1e293b;font-size:0.75rem;padding:2rem 0 1rem 0;margin-top:2rem;border-top:1px solid rgba(255,255,255,0.04);">
+    Urban Infrastructure Intelligence Platform &nbsp;•&nbsp; Built for Smart City Planning &nbsp;•&nbsp; Seattle SPU Dataset
+</div>
+""", unsafe_allow_html=True)
