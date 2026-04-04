@@ -20,12 +20,16 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
     st.markdown("**Navigation**")
-    st.page_link("/",               label="🏠  Home",             )
-    st.page_link("/1_drain",      label="🌧️  Drain Analysis"    )
-    st.page_link("/2_pipe",       label="🔧  Pipe Analysis"     )
-    st.page_link("/3_map",        label="🗺️  Map Viewer"        )
-    st.page_link("/4_insights",   label="📊  Insights"          )
-    st.page_link("/5_about",      label="ℹ️  About"             )
+   st.markdown("""
+<div style="display:flex;flex-direction:column;gap:0.3rem;">
+    <a href="/" style="color:#94a3b8;text-decoration:none;padding:0.5rem 0.8rem;border-radius:7px;font-size:0.88rem;">🏠&nbsp; Home</a>
+    <a href="/1_drain" style="color:#94a3b8;text-decoration:none;padding:0.5rem 0.8rem;border-radius:7px;font-size:0.88rem;">🌧️&nbsp; Drain Analysis</a>
+    <a href="/2_pipe" style="color:#94a3b8;text-decoration:none;padding:0.5rem 0.8rem;border-radius:7px;font-size:0.88rem;">🔧&nbsp; Pipe Analysis</a>
+    <a href="/3_map" style="color:#94a3b8;text-decoration:none;padding:0.5rem 0.8rem;border-radius:7px;font-size:0.88rem;">🗺️&nbsp; Map Viewer</a>
+    <a href="/4_insights" style="color:#94a3b8;text-decoration:none;padding:0.5rem 0.8rem;border-radius:7px;font-size:0.88rem;">📊&nbsp; Insights</a>
+    <a href="/5_about" style="color:#94a3b8;text-decoration:none;padding:0.5rem 0.8rem;border-radius:7px;font-size:0.88rem;">ℹ️&nbsp; About</a>
+</div>
+""", unsafe_allow_html=True)
 
     st.markdown("<hr style='border-color:rgba(255,255,255,0.06);margin:1.5rem 0;'>", unsafe_allow_html=True)
     st.markdown(f"""
