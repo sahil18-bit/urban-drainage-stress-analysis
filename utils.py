@@ -177,6 +177,7 @@ section[data-testid="stSidebar"] * { color: #94a3b8 !important; }
 #MainMenu { visibility: hidden; }
 footer    { visibility: hidden; }
 header    { visibility: hidden; }
+[data-testid="stSidebarNav"] { display: none !important; }
 </style>
 """
 
