@@ -20,6 +20,8 @@ with st.sidebar:
     st.page_link("pages/2_pipe.py",     label="🔧  Pipe Analysis")
     st.page_link("pages/3_map.py",      label="🗺️  Map Viewer")
     st.page_link("pages/4_insights.py", label="📊  Insights")
+    st.page_link("pages/5_about.py",    label="ℹ️  About")
+
 
 st.markdown("""
 <div class="page-title">
