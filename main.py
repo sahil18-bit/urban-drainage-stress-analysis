@@ -20,12 +20,12 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
     st.markdown("**Navigation**")
-    st.page_link("main.py",               label="🏠  Home",             )
-    st.page_link("pages/1_drain.py",      label="🌧️  Drain Analysis"    )
-    st.page_link("pages/2_pipe.py",       label="🔧  Pipe Analysis"     )
-    st.page_link("pages/3_map.py",        label="🗺️  Map Viewer"        )
-    st.page_link("pages/4_insights.py",   label="📊  Insights"          )
-    st.page_link("pages/5_about.py",      label="ℹ️  About"             )
+    st.page_link("/",               label="🏠  Home",             )
+    st.page_link("/1_drain",      label="🌧️  Drain Analysis"    )
+    st.page_link("/2_pipe",       label="🔧  Pipe Analysis"     )
+    st.page_link("/3_map",        label="🗺️  Map Viewer"        )
+    st.page_link("/4_insights",   label="📊  Insights"          )
+    st.page_link("/5_about",      label="ℹ️  About"             )
 
     st.markdown("<hr style='border-color:rgba(255,255,255,0.06);margin:1.5rem 0;'>", unsafe_allow_html=True)
     st.markdown(f"""
