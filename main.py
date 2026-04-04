@@ -26,6 +26,8 @@ with st.sidebar:
     st.page_link("pages/2_pipe.py",     label="🔧  Pipe Analysis")
     st.page_link("pages/3_map.py",      label="🗺️  Map Viewer")
     st.page_link("pages/4_insights.py", label="📊  Insights")
+    st.page_link("pages/5_about.py",    label="ℹ️  About")
+
 
     st.markdown("<hr style='border-color:rgba(255,255,255,0.06);margin:1.5rem 0;'>", unsafe_allow_html=True)
     st.markdown(f"""
