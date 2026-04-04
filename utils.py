@@ -176,7 +176,6 @@ section[data-testid="stSidebar"] * { color: #94a3b8 !important; }
 /* Hide streamlit default elements */
 #MainMenu { visibility: hidden; }
 footer    { visibility: hidden; }
-header    { visibility: hidden; }
 button[kind="header"] { visibility: visible !important; }
 [data-testid="stSidebarNav"] { display: none !important; }
 </style>
