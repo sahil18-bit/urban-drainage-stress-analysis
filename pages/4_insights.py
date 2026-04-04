@@ -14,12 +14,12 @@ with st.sidebar:
         <div style="font-size:1.1rem;font-weight:700;color:#e2e8f0;">🏙️ City Infrastructure</div>
         <div style="font-size:0.72rem;color:#475569;margin-top:0.2rem;">Intelligence Platform</div></div>""", unsafe_allow_html=True)
     st.markdown("**Navigation**")
-    st.page_link("main.py",             label="🏠  Home")
-    st.page_link("pages/1_drain.py",    label="🌧️  Drain Analysis")
-    st.page_link("pages/2_pipe.py",     label="🔧  Pipe Analysis")
-    st.page_link("pages/3_map.py",      label="🗺️  Map Viewer")
-    st.page_link("pages/4_insights.py", label="📊  Insights")
-    st.page_link("pages/5_about.py",    label="ℹ️  About")
+    st.page_link("/",             label="🏠  Home")
+    st.page_link("/1_drain",    label="🌧️  Drain Analysis")
+    st.page_link("/2_pipe",     label="🔧  Pipe Analysis")
+    st.page_link("/3_map",      label="🗺️  Map Viewer")
+    st.page_link("/4_insights", label="📊  Insights")
+    st.page_link("/5_about",    label="ℹ️  About")
 
 st.markdown("""
 <div class="page-title">
