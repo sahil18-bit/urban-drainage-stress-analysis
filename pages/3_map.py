@@ -13,17 +13,13 @@ with st.sidebar:
         <div style="font-size:0.72rem;color:#475569;margin-top:0.2rem;">Intelligence Platform</div>
     </div>
     """, unsafe_allow_html=True)
+
     st.markdown("**Navigation**")
-    st.markdown("""
-    <div style="display:flex;flex-direction:column;gap:0.3rem;">
-        <a href="/" style="color:#94a3b8;text-decoration:none;padding:0.5rem 0.8rem;border-radius:7px;font-size:0.88rem;">🏠&nbsp; Home</a>
-        <a href="/1_drain" style="color:#94a3b8;text-decoration:none;padding:0.5rem 0.8rem;border-radius:7px;font-size:0.88rem;">🌧️&nbsp; Drain Analysis</a>
-        <a href="/2_pipe" style="color:#94a3b8;text-decoration:none;padding:0.5rem 0.8rem;border-radius:7px;font-size:0.88rem;">🔧&nbsp; Pipe Analysis</a>
-        <a href="/3_map" style="color:#94a3b8;text-decoration:none;padding:0.5rem 0.8rem;border-radius:7px;font-size:0.88rem;">🗺️&nbsp; Map Viewer</a>
-        <a href="/4_insights" style="color:#94a3b8;text-decoration:none;padding:0.5rem 0.8rem;border-radius:7px;font-size:0.88rem;">📊&nbsp; Insights</a>
-        <a href="/5_about" style="color:#94a3b8;text-decoration:none;padding:0.5rem 0.8rem;border-radius:7px;font-size:0.88rem;">ℹ️&nbsp; About</a>
-    </div>
-    """, unsafe_allow_html=True)
+    st.page_link("main.py",             label="🏠  Home")
+    st.page_link("pages/1_drain.py",    label="🌧️  Drain Analysis")
+    st.page_link("pages/2_pipe.py",     label="🔧  Pipe Analysis")
+    st.page_link("pages/3_map.py",      label="🗺️  Map Viewer")
+    st.page_link("pages/4_insights.py", label="📊  Insights")
 
 st.markdown("""
 <div class="page-title">
