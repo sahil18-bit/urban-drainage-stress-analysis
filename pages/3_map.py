@@ -30,7 +30,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-map_url = MAP_WEBSITE_URL
+map_url = https://drain-pipe-mapping.onrender.com
 
 st.markdown(f"""
 <div style="background:linear-gradient(135deg,rgba(13,33,55,0.9),rgba(10,61,98,0.7));
