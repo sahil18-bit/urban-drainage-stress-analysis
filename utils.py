@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 import streamlit as st
 
 # ── Config ────────────────────────────────────────────────────────────
-MAP_WEBSITE_URL = "https://your-mapping-website.streamlit.app"  # 🔁 Replace after deployment
+MAP_WEBSITE_URL = "https://drain-pipe-mapping.onrender.com"  # 🔁 Replace after deployment
 
 DRAIN_REQUIRED_COLS = [
     'Drain_ID', 'Rainfall_mm_hr', 'Catchment_km2',
