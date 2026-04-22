@@ -30,16 +30,6 @@ with st.sidebar:
 
     st.markdown("<hr style='border-color:rgba(255,255,255,0.06);margin:1.5rem 0;'>", unsafe_allow_html=True)
     st.markdown(f"""
-    <div style="font-size:0.75rem;color:#334155;">
-        <div style="margin-bottom:0.5rem;color:#475569;">Map Viewer</div>
-        <a href="{MAP_WEBSITE_URL}" target="_blank" style="
-            display:block;background:linear-gradient(135deg,#1d4ed8,#1e40af);
-            color:#fff;text-decoration:none;padding:0.5rem 0.8rem;border-radius:8px;
-            font-size:0.8rem;font-weight:600;text-align:center;
-            border:1px solid rgba(41,121,255,0.4);">
-            🗺️ Open Map Viewer ↗
-        </a>
-    </div>
     """, unsafe_allow_html=True)
 
 # ── Hero Section ──────────────────────────────────────────────────────
