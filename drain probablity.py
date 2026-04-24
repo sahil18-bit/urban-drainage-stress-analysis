@@ -32,7 +32,7 @@ status_map = {0: 'SAFE', 1: 'STRESSED', 2: 'CRITICAL'}
 drains['Drain_Status'] = drains['Status_Label'].map(status_map)
 
 print(f"\nRe-classified status distribution:")
-print(drains['Operational_Status'].value_counts())
+print(drains['Drain_Status'].value_counts())
 
 features = [
     'Rainfall_mm_hr',    
