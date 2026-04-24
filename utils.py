@@ -232,9 +232,9 @@ def run_drain_analysis(df):
         elif u <= 0.9: return 'STRESSED'
         else:          return 'CRITICAL'
 
-    df['Drain_Status'] = df['Utilization_Ratio'].apply(get_status)
+    df['Operational_Status'] = df['Utilization_Ratio'].apply(get_status)
     status_to_label = {'SAFE':0,'STRESSED':1,'CRITICAL':2}
-    df['Status_Label'] = df['Drain_Status'].map(status_to_label)
+    df['Status_Label'] = df['Operational_Status'].map(status_to_label)
 
     features = ['Rainfall_mm_hr','Impervious_frac',deg_col,'Catchment_km2','Runoff_coeff']
     if 'Slope' in df.columns: features.insert(1,'Slope')
