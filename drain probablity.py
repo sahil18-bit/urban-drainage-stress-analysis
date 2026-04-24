@@ -29,7 +29,7 @@ def classify(u):
 drains['Status_Label'] = drains['Utilization_Ratio'].apply(classify)
 
 status_map = {0: 'SAFE', 1: 'STRESSED', 2: 'CRITICAL'}
-drains['Operational_Status'] = drains['Status_Label'].map(status_map)
+drains['Drain_Status'] = drains['Status_Label'].map(status_map)
 
 print(f"\nRe-classified status distribution:")
 print(drains['Operational_Status'].value_counts())
