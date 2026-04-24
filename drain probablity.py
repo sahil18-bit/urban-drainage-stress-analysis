@@ -19,7 +19,7 @@ drains = drains_monthly.copy()
 drains["Peak_Utilization"] = drains["Utilization_Ratio"]
 print(f"After aggregation  : {drains.shape}")
 print(f"\nStatus distribution:")
-print(drains['Drain_Status'].value_counts())
+print(drains['Operational_Status'].value_counts())
 
 def classify(u):
     if u < 0.6:   return 0 
@@ -29,10 +29,10 @@ def classify(u):
 drains['Status_Label'] = drains['Utilization_Ratio'].apply(classify)
 
 status_map = {0: 'SAFE', 1: 'STRESSED', 2: 'CRITICAL'}
-drains['Drain_Status'] = drains['Status_Label'].map(status_map)
+drains['Operational_Status'] = drains['Status_Label'].map(status_map)
 
 print(f"\nRe-classified status distribution:")
-print(drains['Drain_Status'].value_counts())
+print(drains['Operational_Status'].value_counts())
 
 features = [
     'Rainfall_mm_hr',    
@@ -74,7 +74,7 @@ print("-------------------")
 print(f"Drain ID            : {int(target['Drain_ID'])}")
 print(f"Mean Load           : {target['Utilization_Ratio']*100:.1f}%")
 print(f"Peak Load           : {target['Peak_Utilization']*100:.1f}%")
-print(f"Status              : {target['Drain_Status']}")
+print(f"Status              : {target['Operational_Status']}")
 print(f"Failure Probability : {target['Failure_Probability']*100:.1f}%")
 
 print("\nFailure Probability stats:")
