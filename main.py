@@ -123,48 +123,8 @@ for col, (icon, title, desc, color) in zip([c1,c2,c3,c4], cards):
         </div>
         """, unsafe_allow_html=True)
 
-# ── System stats ──────────────────────────────────────────────────────
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown("""
-<div style="color:#94a3b8;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:1rem;">
-    System Overview
-</div>
-""", unsafe_allow_html=True)
 
-s1, s2, s3, s4 = st.columns(4)
-stats = [
-    ("300", "Drain Points Monitored", "#4ade80"),
-    ("300", "Pipe Segments Tracked", "#60a5fa"),
-    ("12", "Months of Rainfall Data", "#a78bfa"),
-    ("2", "ML Models Deployed", "#fb923c"),
-]
-for col, (val, label, color) in zip([s1,s2,s3,s4], stats):
-    with col:
-        st.markdown(f"""
-        <div class="stat-card">
-            <div class="stat-number" style="color:{color};">{val}</div>
-            <div class="stat-label">{label}</div>
-        </div>
-        """, unsafe_allow_html=True)
 
-# ── Pipeline flow ─────────────────────────────────────────────────────
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown("""
-<div class="glass-card">
-    <div style="color:#e2e8f0;font-weight:600;font-size:0.95rem;margin-bottom:1.2rem;">⚙️ Analysis Pipeline</div>
-    <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
-        <div style="background:rgba(29,78,216,0.15);border:1px solid rgba(29,78,216,0.3);border-radius:8px;padding:0.5rem 1rem;font-size:0.82rem;color:#93c5fd;">📁 Raw CSV Upload</div>
-        <div style="color:#334155;font-size:1.2rem;">→</div>
-        <div style="background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);border-radius:8px;padding:0.5rem 1rem;font-size:0.82rem;color:#c4b5fd;">⚡ Physics Engine</div>
-        <div style="color:#334155;font-size:1.2rem;">→</div>
-        <div style="background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);border-radius:8px;padding:0.5rem 1rem;font-size:0.82rem;color:#6ee7b7;">🤖 Random Forest ML</div>
-        <div style="color:#334155;font-size:1.2rem;">→</div>
-        <div style="background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);border-radius:8px;padding:0.5rem 1rem;font-size:0.82rem;color:#fca5a5;">📊 Failure Probability</div>
-        <div style="color:#334155;font-size:1.2rem;">→</div>
-        <div style="background:rgba(251,146,60,0.15);border:1px solid rgba(251,146,60,0.3);border-radius:8px;padding:0.5rem 1rem;font-size:0.82rem;color:#fed7aa;">⬇️ CSV Output</div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
 
 # ── Footer ────────────────────────────────────────────────────────────
 st.markdown("""
