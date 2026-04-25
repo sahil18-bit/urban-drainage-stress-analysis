@@ -2,7 +2,7 @@ import streamlit as st
 from utils import inject_css, MAP_WEBSITE_URL
 
 st.set_page_config(
-    page_title="Urban Infrastructure Intelligence Platform",
+    page_title="Urban Drainage Intelligence Platform",
     page_icon="🏙️",
     layout="wide",
     initial_sidebar_state="expanded"
