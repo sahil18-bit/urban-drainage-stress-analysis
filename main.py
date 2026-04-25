@@ -69,7 +69,7 @@ st.markdown("""
             margin:0 0 1rem 0;line-height:1.15;
             background:linear-gradient(135deg,#ffffff,#93c5fd);
             -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-        ">Urban Infrastructure<br>Intelligence Platform</h1>
+        ">Urban Drainage<br>Intelligence Platform</h1>
         <p style="color:#64748b;font-size:1.05rem;margin:0 0 2.5rem 0;max-width:560px;line-height:1.6;">
             AI-powered drainage and pipe risk monitoring system for smart city planning and flood prevention.
             Upload raw data, run physics-based ML analysis, and get actionable risk insights.
